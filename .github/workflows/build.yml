@@ -19,7 +19,7 @@ jobs:
           printf '{
             "image": "repo/app-name:123"
           }' >> context.json
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3
         with:
           name: context
           path: ./
