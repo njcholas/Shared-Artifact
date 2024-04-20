@@ -19,6 +19,10 @@ jobs:
           if_no_artifact_found: warn
       - name: Test
         run: cat context.json
-      - name: Return Parsed JSON
-        run: |
-          echo '${{ fromJson(context.json).image }}'
+      - name: Install jq
+        uses: actions/tools@v2
+        with:
+          tool: jq
+          version: '3.7'
+      - name: Get value from JSON
+        run: echo $(jq '.image' ./context.json)
