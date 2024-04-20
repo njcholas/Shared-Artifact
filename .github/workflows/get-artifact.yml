@@ -10,10 +10,12 @@ jobs:
         uses: actions/download-artifact@v3
           with: context.zip
           path: ./
+      - name: Unzip file
+        run: unzip context.zip
       - name: Return Parsed JSON
         run: |
           echo 'context.json<<EOF' >> $GITHUB_ENV
-          cat ./context.json >> $GITHUB_ENV
+          cat context.zip/context.json >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
         run: |
           echo '${{ fromJson(env.PACKAGE_JSON).image }}'
