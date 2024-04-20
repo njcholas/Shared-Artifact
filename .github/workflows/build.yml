@@ -24,4 +24,6 @@ jobs:
           name: context
           path: ./
 
- 
+  share-artifact:
+    needs: build
+    uses: njcholas/Shared-Artifact/.github/workflows/get-artifact.yml@main
