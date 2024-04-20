@@ -1,0 +1,19 @@
+name: Get artifact 
+
+on: workflow_call
+
+jobs:
+  get-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact from repository
+        uses: actions/download-artifact@v3
+          with: context.zip
+          path: ./
+      - name: Return Parsed JSON
+        run: |
+          echo 'context.json<<EOF' >> $GITHUB_ENV
+          cat ./context.json >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV
+        run: |
+          echo '${{ fromJson(env.PACKAGE_JSON).image }}'
