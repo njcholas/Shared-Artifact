@@ -28,4 +28,4 @@ jobs:
         id: json-value
         run: echo $(jq '.image' ./context.json)
       - name: Get output
-        run: echo "the output is: ${{ steps.json-value.outputs.image }}"
+        run: echo "the output is ${{ steps.json-value.outputs.image }}"
