@@ -21,9 +21,4 @@ jobs:
         run: cat context.json
       - name: Return Parsed JSON
         run: |
-          echo 'context.json<<EOF' >> $GITHUB_ENV
-          cat context.json >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
-      - name:
-        run: |
           echo '${{ fromJson(env.PACKAGE_JSON).image }}'
