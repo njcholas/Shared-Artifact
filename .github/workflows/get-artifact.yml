@@ -26,6 +26,6 @@ jobs:
           version: '3.7'
       - name: Get value from JSON
         id: json-value
-        run: echo $(jq '.image' ./context.json)
+        run: echo "image=$(jq '.image' ./context.json)" >> $GITHUB_OUTPUT
       - name: Get output
         run: echo "the output is ${{ steps.json-value.outputs.image }}"
