@@ -25,4 +25,7 @@ jobs:
           tool: jq
           version: '3.7'
       - name: Get value from JSON
+        id: json-value
         run: echo $(jq '.image' ./context.json)
+      - name: Get output
+        run: echo "the output is: ${{ steps.json-value.outputs.image }}"
