@@ -1,5 +1,8 @@
 name: Get artifact 
 
+permissions:
+  actions: read
+
 on: workflow_call
 
 jobs:
