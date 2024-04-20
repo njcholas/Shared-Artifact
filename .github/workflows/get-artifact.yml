@@ -9,10 +9,10 @@ jobs:
       - name: Download Artifact from repository
         uses: actions/download-artifact@v3
         with: 
-          name: context.zip
+          name: context
           path: ./
       - name: Unzip file
-        run: unzip context.zip
+        run: unzip context
       - name: Return Parsed JSON
         run: |
           echo 'context.json<<EOF' >> $GITHUB_ENV
