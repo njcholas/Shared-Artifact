@@ -8,9 +8,9 @@ jobs:
     steps:
       - name: Download Artifact from repository
         uses: actions/download-artifact@v3
-          with: 
-            name: context.zip
-            path: ./
+        with: 
+          name: context.zip
+          path: ./
       - name: Unzip file
         run: unzip context.zip
       - name: Return Parsed JSON
