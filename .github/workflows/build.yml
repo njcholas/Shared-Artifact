@@ -25,5 +25,7 @@ jobs:
           path: ./
 
   share-artifact:
+    permissions: 
+      actions: read
     needs: build
     uses: ./.github/workflows/get-artifact.yml
