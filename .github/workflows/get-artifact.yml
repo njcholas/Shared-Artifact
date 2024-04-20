@@ -9,10 +9,11 @@ jobs:
   get-artifact:
     runs-on: ubuntu-latest
     steps:
-      - name: Download Artifact from repository
-        uses: actions/download-artifact@v3
-        with: 
+      - name: Download Artifact
+        id: download-artifact
+        uses: dawidd6/action-download-artifact@v3
+        with:
+          workflow_conclusion: success
           name: context
-          path: ./
-      - name: test
-        run: cd context && ls
+          check_artifacts: true
+          if_no_artifact_found: warn
