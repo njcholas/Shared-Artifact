@@ -20,7 +20,7 @@ jobs:
       - name: Test
         run: cat context.json
       - name: Install jq
-        uses: actions/tools@v2
+        uses: sergeysova/jq-action@v2
         with:
           tool: jq
           version: '3.7'
