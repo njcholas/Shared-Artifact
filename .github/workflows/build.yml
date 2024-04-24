@@ -12,5 +12,7 @@ jobs:
   codeql:
     permissions: 
       actions: read
+      contents: read
+      security-events: write
     needs: build
     uses: ./.github/workflows/codeql-test.yml
