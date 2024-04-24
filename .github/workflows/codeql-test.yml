@@ -40,17 +40,6 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{matrix.language}}
-        config-file: ${{inputs.codeql-cfg-path}}
-
-    # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
-    # If this step fails, configure a build command manually using build-command input. This command will be executed in the corresponding step.
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
-
-    - name: Manual build
-      if: ${{inputs.build-command}}
-      run: |
-        ${{inputs.build-command}}
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
